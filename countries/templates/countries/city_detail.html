@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}City Details: {{ city.name }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>{{ city.name }}</h1>
+    <p>Population: {{ city.population }}</p>
+    <p>Country: {{ city.country.name }}</p>
+
+    <a href="{% url 'countries:landmark_list' pk=city.pk %}" class="btn btn-primary mt-3">View All Landmarks in {{ city.name }}</a>
+</div>
+{% endblock %}

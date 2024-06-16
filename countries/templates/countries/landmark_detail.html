@@ -1,0 +1,18 @@
+<!-- countries/landmark_detail.html -->
+{% extends 'base.html' %}
+
+{% block title %}{{ landmark.name }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h2>{{ landmark.name }}</h2>
+        </div>
+        <div class="card-body">
+            <p><strong>Location:</strong> {{ landmark.country }} {{ landmark.city}}</p>
+            <p><strong>Description:</strong> {{ landmark.description }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

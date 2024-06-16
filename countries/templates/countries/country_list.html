@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Country List{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>List of Countries</h1>
+    <ul class="list-group">
+        {% for country in countries %}
+            <li class="list-group-item">
+                <h2>{{ country.name }}</h2>
+                {% if country.flag %}
+                    <img src="{{ country.flag.url }}" alt="{{ country.name }} flag" width="200" class="border">
+                {% else %}
+                    <img src="{% static 'images/default_flag.png' %}" alt="Default Flag" class="img-fluid mb-3">
+                {% endif %}
+                <p>Population: {{ country.population }}</p>
+                <p>Area: {{ country.area }}</p>
+                <p><a href="{% url 'countries:country_detail' pk=country.pk %}" class="btn btn-primary">View Details</a></p>
+                <p><a href="{% url 'countries:city_list' country_pk=country.pk %}" class="btn btn-primary">View Cities</a></p>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

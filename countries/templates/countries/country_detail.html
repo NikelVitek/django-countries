@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h2>{{ country.name }}</h2>
+        </div>
+        <div class="card-body">
+            {% if country.flag %}
+                <img src="{{ MEDIA_URL }}{{ country.flag.url }}" alt="{{ country.name }} Flag" class="img-fluid mb-3">
+            {% else %}
+            <img src="{% static 'images/default_flag.png' %}" alt="Default Flag" class="img-fluid mb-3">
+            {% endif %}
+            
+            <p>Population: {{ country.population }}</p>
+            <p>Area: {{ country.area }} square kilometers</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Landmarks in {{ city.name }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Landmarks in {{ city.name }}</h1>
+    <ul class="list-group">
+        {% for landmark in landmarks %}
+        <li class="list-group-item">
+            <h3>{{ landmark.name }}</h3>
+            <p>Description: {{ landmark.description }}</p>
+        </li>
+        {% empty %}
+        <li class="list-group-item">No landmarks found.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

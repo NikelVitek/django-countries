@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>List of Cities in {{ country.name }}</h1>
+    <ul class="list-group">
+        {% for city in cities %}
+        <li class="list-group-item">
+            <h2>{{ city.name }}</h2>
+            <p>Population: {{ city.population }}</p>
+            <p>Country: {{ city.country.name }}</p>
+            <a href="{% url 'countries:city_detail' country_pk=city.country.pk pk=city.pk %}" class="btn btn-primary">View Details</a>
+        </li>
+        {% empty %}
+        <li class="list-group-item">
+            No cities found.
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
